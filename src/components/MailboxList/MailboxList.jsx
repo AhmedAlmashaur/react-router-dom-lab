@@ -1,19 +1,21 @@
 import { Link } from "react-router-dom";
-import "./MailboxList.css"; // Add your CSS styles
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MailboxList = ({ mailboxes }) => {
     return (
-        <div>
-            <h2>Mailboxes</h2>
-            <div className="mailboxes-container">
+        <div className="container my-4">
+            <h2 className="text-center mb-4">Mailboxes</h2>
+            <div className="row g-3">
                 {mailboxes.map((mailbox) => (
-                    <Link
-                        to={`/mailboxes/${mailbox._id}`}
-                        key={mailbox._id}
-                        className="mail-box"
-                    >
-                        Box {mailbox._id}
-                    </Link>
+                    <div className="col-md-3 col-sm-6" key={mailbox._id}>
+                        <Link
+                            to={`/mailboxes/${mailbox._id}`}
+                            className="btn btn-outline-primary w-100 text-center p-3"
+                            style={{ borderRadius: '8px' }}
+                        >
+                            Box {mailbox._id}
+                        </Link>
+                    </div>
                 ))}
             </div>
         </div>
